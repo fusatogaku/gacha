@@ -14,30 +14,30 @@ def getDataFromDB():
     # ガチャ自体(レアリティ、確率)のデータ
     info = {
         'weights': [[5, 0.03], [4, 0.15], [3, 0.82]],
-        'pickup': [['甘雨', 0.4], ['ウェンティ', 0.4], ['スクロース', 0.5]]
+        'pickup': [['大当たり!!01', 0.4], ['大当たり!!02', 0.4], ['当たり!01', 0.5]]
     }
     # ガチャの景品のデータ
     master = [
-        {'id': '大当たり!!01', 'rarity': 5},
-        {'id': '大当たり!!02', 'rarity': 5},
-        {'id': '大当たり!!03', 'rarity': 5},
-        {'id': '大当たり!!04', 'rarity': 5},
-        {'id': '当たり!01', 'rarity': 4},
-        {'id': '当たり!02', 'rarity': 4},
-        {'id': '当たり!03', 'rarity': 4},
-        {'id': '当たり!04', 'rarity': 4},
-        {'id': '当たり!05', 'rarity': 4},
-        {'id': '当たり!06', 'rarity': 4},
-        {'id': 'はずれ01', 'rarity': 3},
-        {'id': 'はずれ02', 'rarity': 3},
-        {'id': 'はずれ03', 'rarity': 3},
-        {'id': 'はずれ04', 'rarity': 3},
-        {'id': 'はずれ05', 'rarity': 3},
-        {'id': 'はずれ06', 'rarity': 3},
-        {'id': 'はずれ07', 'rarity': 3},
-        {'id': 'はずれ08', 'rarity': 3},
-        {'id': 'はずれ09', 'rarity': 3},
-        {'id': 'はずれ10', 'rarity': 3},
+        {'Goods': '大当たり!!01', 'rarity': 5},
+        {'Goods': '大当たり!!02', 'rarity': 5},
+        {'Goods': '大当たり!!03', 'rarity': 5},
+        {'Goods': '大当たり!!04', 'rarity': 5},
+        {'Goods': '当たり!01', 'rarity': 4},
+        {'Goods': '当たり!02', 'rarity': 4},
+        {'Goods': '当たり!03', 'rarity': 4},
+        {'Goods': '当たり!04', 'rarity': 4},
+        {'Goods': '当たり!05', 'rarity': 4},
+        {'Goods': '当たり!06', 'rarity': 4},
+        {'Goods': 'はずれ01', 'rarity': 3},
+        {'Goods': 'はずれ02', 'rarity': 3},
+        {'Goods': 'はずれ03', 'rarity': 3},
+        {'Goods': 'はずれ04', 'rarity': 3},
+        {'Goods': 'はずれ05', 'rarity': 3},
+        {'Goods': 'はずれ06', 'rarity': 3},
+        {'Goods': 'はずれ07', 'rarity': 3},
+        {'Goods': 'はずれ08', 'rarity': 3},
+        {'Goods': 'はずれ09', 'rarity': 3},
+        {'Goods': 'はずれ10', 'rarity': 3},
     ]
 
     return [info, master]
@@ -70,10 +70,10 @@ def getConfig():
         config.append({'rarity': rarity[i], 'prob': prob[i], 'pickups':[] , 'ids':[]})
         
         for ids in filter(lambda x: x['rarity'] == rarity[i], master):
-            for pickups in filter(lambda y: ids['id'] in y , info['pickup']):
+            for pickups in filter(lambda y: ids['Goods'] in y , info['pickup']):
                 config[i]['pickups'].append(pickups)
 
-            config[i]['ids'].append(ids['id'])
+            config[i]['ids'].append(ids['Goods'])
 
     return config
 
